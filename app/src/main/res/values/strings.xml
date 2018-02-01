@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Tarea01</string>
+    <string-array name="books">
+        <item>Padre rico, padre pobre</item>
+        <item>Una vida sin limites</item>
+        <item>Encontrar al nuevo Steve Jobs</item>
+        <item>Habitos de ricos</item>
+        <item>Menos miedos mas riquezas</item>
+    </string-array>
+    <string-array name="studies">
+        <item>Bachillerato</item>
+        <item>Tecnico</item>
+        <item>Licenciatura</item>
+        <item>Maestria</item>
+        <item>Doctorado</item>
+    </string-array>
+    <string name="activity_main_name">Ingrese su nombre</string>
+    <string name="activity_main_phone">Ingrese su telefono</string>
+    <string name="activity_main_studies">Escolaridad</string>
+    <string name="activity_main_gender">Genero</string>
+    <string name="activity_main_female">Femenino</string>
+    <string name="activity_main_male">Masculino</string>
+    <string name="activity_main_favorite">Libro favorito</string>
+    <string name="activity_main_favorite_hint">Libro …</string>
+    <string name="activity_main_sports">Practica Deporte</string>
+    <string name="activity_main_clean">Limpiear</string>
+</resources>

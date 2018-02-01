@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:padding="10dp">
+
+        <ScrollView
+            android:id="@+id/wrapper_main_activity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/btn_clean_main_activity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/et_name_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:hint="Ingrese su nombre"/>
+
+                <EditText
+                    android:id="@+id/et_phone_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese su telefono"
+                    android:inputType="phone"/>
+
+                <TextView
+                    android:id="@+id/tv_studies_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    android:paddingStart="4dp"
+                    android:text="Escolaridad"/>
+
+                <Spinner
+                    android:id="@+id/sp_studies_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_gender_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:paddingStart="4dp"
+                    android:text="Genero"/>
+
+                <RadioGroup
+                    android:id="@+id/rd_gender_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb_female_main_activity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Femenino"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_male_main_activity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Masculino"/>
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_book_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:paddingStart="4dp"
+                    android:text="Libro favorito"/>
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_book_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Libro ..."/>
+
+                <CheckBox
+                    android:id="@+id/chb_sports_main_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Practica Deporte"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_clean_main_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Limpiar"/>
+
+    </RelativeLayout>
+</layout>
