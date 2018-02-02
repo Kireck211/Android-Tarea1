@@ -66,6 +66,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "onCreateOptionsMenu");
         final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
@@ -73,6 +74,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onOptionsItemSelected");
         switch (item.getItemId()) {
             case R.id.ic_save:
                 showConfirmation();
@@ -92,6 +94,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        Log.d(TAG, "onSaveInstanceState");
         super.onSaveInstanceState(outState);
         outState.putString("name", mBinding.etNameMainActivity.getText().toString());
         outState.putString("phone", mBinding.etPhoneMainActivity.getText().toString());
@@ -102,6 +105,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setAdapters() {
+        Log.d(TAG, "setAdapters");
         String[] books = getResources().getStringArray(R.array.books);
         mBooksAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, books);
         mBinding.actvBookMainActivity.setAdapter(mBooksAdapter);
@@ -140,6 +144,19 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showConfirmation() {
+        Log.d(TAG, "showConfirmation");
+
+        if (mBinding.etNameMainActivity.getText().toString().length() == 0) {
+            mToast = Toast.makeText(this, "El campo de nombre no puede estar vacio", Toast.LENGTH_LONG);
+            mToast.show();
+            return;
+        }
+        if (mBinding.etPhoneMainActivity.getText().toString().length() == 0) {
+            mToast = Toast.makeText(this, "El campo de telefono no puede estar vacio", Toast.LENGTH_LONG);
+            mToast.show();
+            return;
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Desea limpiar el contenido?")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -153,8 +170,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
-                });
-        builder.create();
+                })
+                .show();
     }
 
     private void makeToast() {
@@ -162,16 +179,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
         if (mToast != null && mToast.getView().isShown())
             return;
 
-        if (mBinding.etNameMainActivity.getText().toString().length() == 0) {
-            mToast = Toast.makeText(this, "El campo de nombre no puede estar vacio", Toast.LENGTH_LONG);
-            mToast.show();
-            return;
-        }
-        if (mBinding.etPhoneMainActivity.getText().toString().length() == 0) {
-            mToast = Toast.makeText(this, "El campo de telefono no puede estar vacio", Toast.LENGTH_LONG);
-            mToast.show();
-           return;
-        }
+
 
         Student student = new Student(
                 mBinding.etNameMainActivity.getText().toString(),

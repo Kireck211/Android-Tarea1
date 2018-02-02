@@ -23,5 +23,5 @@
     <string name="activity_main_favorite">Libro favorito</string>
     <string name="activity_main_favorite_hint">Libro …</string>
     <string name="activity_main_sports">Practica Deporte</string>
-    <string name="activity_main_clean">Limpiear</string>
+    <string name="activity_main_clean">Limpiar</string>
 </resources>
