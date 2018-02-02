@@ -77,7 +77,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "onOptionsItemSelected");
         switch (item.getItemId()) {
             case R.id.ic_save:
-                showConfirmation();
+                makeToast();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -146,23 +146,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     private void showConfirmation() {
         Log.d(TAG, "showConfirmation");
 
-        if (mBinding.etNameMainActivity.getText().toString().length() == 0) {
-            mToast = Toast.makeText(this, "El campo de nombre no puede estar vacio", Toast.LENGTH_LONG);
-            mToast.show();
-            return;
-        }
-        if (mBinding.etPhoneMainActivity.getText().toString().length() == 0) {
-            mToast = Toast.makeText(this, "El campo de telefono no puede estar vacio", Toast.LENGTH_LONG);
-            mToast.show();
-            return;
-        }
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Desea limpiar el contenido?")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        makeToast();
+                        cleanView();
                     }
                 })
                 .setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
@@ -176,10 +165,20 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
     private void makeToast() {
         Log.d(TAG, "makeToast");
+
+        if (mBinding.etNameMainActivity.getText().toString().length() == 0) {
+            mToast = Toast.makeText(this, "El campo de nombre no puede estar vacio", Toast.LENGTH_LONG);
+            mToast.show();
+            return;
+        }
+        if (mBinding.etPhoneMainActivity.getText().toString().length() == 0) {
+            mToast = Toast.makeText(this, "El campo de telefono no puede estar vacio", Toast.LENGTH_LONG);
+            mToast.show();
+            return;
+        }
+
         if (mToast != null && mToast.getView().isShown())
             return;
-
-
 
         Student student = new Student(
                 mBinding.etNameMainActivity.getText().toString(),
